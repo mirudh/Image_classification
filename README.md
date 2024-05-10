@@ -110,9 +110,50 @@ The code to generate shap values can also be found in imagenet.ipynb file
 Model quantization is vital for deploying large AI models on resource-constrained devices. Quantization levels, like 8-bit or 16-bit, reduce model size and improve efficiency. Model quantization is vital when it comes to developing and deploying AI models on edge devices that have low power, memory, and computing. It adds the intelligence to IoT eco-system smoothly
 The code to implement post model quantization can also be found in imagenet.ipynb file.
 
+**Conclusion**
+
+The primary goal is to compare the performance of the imagenet dataset for various architectures. The below architectures are used for the comparative study:
+1. VGG16
+2. Inceptionv3
+3. ResNet50
+4. efficientNet
+We have used 25 classes with 1300 images each in the training data and 25 classes with 50 images each in the validation data. We have fixed the fully-connected layer and certain parameters to train the model using above mentioned architectures.
+
+Layers defined in the fully connected layers are as follows:
+
+The flatten layer serves the purpose of reshaping the output of the preceding layer into a one-dimensional vector, which can then be fed into subsequent fully connected layers. 
+A dense layer is a layer where each neuron is connected to every neuron in the previous layer. In other words, the output of each neuron in a dense layer is computed as a weighted sum of the inputs from all the neurons in the previous layer.
+The Dropout Layer. Another typical characteristic of CNNs is a Dropout layer. The Dropout layer is a mask that nullifies the contribution of some neurons towards the next layer and leaves unmodified all others. The Dropout layer randomly sets input units to 0 with a frequency of rate at each step during training time, which helps prevent overfitting.
+Finally the output layer
+
+Parameters specified:
+
+1. Dropout is set to 0.5.
+2. Activation function used is 'relu'.
+3. Optimizers used is Adam.
+4. Learning rate is set to 0.001.
+5. target_size=(128,128)
+6. Epochs = 3
+
+A comparative study is done with the specified parameters.
+
+1. Under 3 epochs ResNet achieved training accuracy of 0.6599 and validation accuracy of 0.7008
+2. Under 3 epochs VGG16 achieved training accuracy of 0.6369 and validation accuracy of 0.6584
+3. Under 3 epochs EfficientNet achieved training accuracy of 0.0368 and validation accuracy of 0.0400
+4. Under 3 epochs Inceptionv3 achieved training accuracy of 0.0364 and validation accuracy of 0.0400
+
+Therefore, ResNet and VGG16 shows good performance under 3 epochs and Efficientnet and Inceptionv3 shows poor performance under 3 epochs and above specified parameters.
+
+The specified parameters can be changed to experiment the results. We have also plootted shap values to see how features contributed for the cllassification problem. Model Quantization is also performed to deploy large AI models by reducing its size and improving efficiency.
+
+================================================================================================
+
+Note:
 Two .ipynb files are uploaded:
 1. imagenet.ipynb --> Complete code implementation
 2. vgg16.ipynb --> Complete code implementation using VGG16
+
+================================================================================================
 
 
 
