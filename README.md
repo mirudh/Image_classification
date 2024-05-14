@@ -71,6 +71,7 @@ The 'choose_model' variable can be changed to utilize any one of the below menti
 2. Inceptionv3
 3. ResNet50
 4. efficientNet
+Here, I have set choose_model='vgg16', as I am using VGG16 architechture for training the model.
 
 Since we don’t have to train all the layers, we make them non_trainable
 --> for layer in base_model.layers:
@@ -110,6 +111,7 @@ The code to generate shap values can also be found in imagenet.ipynb file
 Model quantization is vital for deploying large AI models on resource-constrained devices. Quantization levels, like 8-bit or 16-bit, reduce model size and improve efficiency. Model quantization is vital when it comes to developing and deploying AI models on edge devices that have low power, memory, and computing. It adds the intelligence to IoT eco-system smoothly
 The code to implement post model quantization can also be found in imagenet.ipynb file.
 
+
 **Conclusion**
 
 The primary goal is to compare the performance of the imagenet dataset for various architectures. The below architectures are used for the comparative study:
@@ -146,14 +148,35 @@ Therefore, ResNet and VGG16 shows good performance under 3 epochs and Efficientn
 
 The specified parameters can be changed to experiment the results. We have also plootted shap values to see how features contributed for the cllassification problem. Model Quantization is also performed to deploy large AI models by reducing its size and improving efficiency.
 
-================================================================================================
+===============================================================================================
 
 Note:
 Two .ipynb files are uploaded:
 1. imagenet.ipynb --> Complete code implementation
-2. vgg16.ipynb --> Complete code implementation using VGG16
+2. vgg16.ipynb --> Complete code implementation using VGG16, also by customly changing the choose_model variable, we can implement the same code using Resnet50, inception and efficient architectures too.
 
-================================================================================================
+===============================================================================================
 
+**Further Optimization**
 
+We see that inception is giving a pretty low accuracy, compared to any other algorithms. To find out the best parameter to train using inception, I have used hyperparameter tuning. The code for which can be found in 'inception_hp.ipynb'
+
+After performing Randomsearch using kera_tuner, The hyperparameters, to achieve good accuracy using inception architecuture is given in the below:
+
+1. The units of the dense layer in fully connected layer is set to 1024
+2. Activation function in the dense layer is set to 'Relu'
+3. The drop-out layer is set to 0.2
+4. Optimizer is set to 'Adam'
+5. learning rate is set to 'e^-4'
+
+For inception architecture, setting up the above parameters in the fully connected layer. We were able to see an improvement in the accuracy. 
+The results under 2 epochs are as shown below:
+
+1. Accuracy increased from 20.2% to 37.6%
+2. Loss decreased from 2.6 to 2.0
+3. Validation accuracy increased from 23% to 26%
+4. Validation loss dropped from 2.54 to 2.51
+
+Randomsearch hyperparameter tuning can be implemented for other architechtures too, by just changing the choose_model variable to any one of the following, such as vgg16, inception, efficientnet and resnet50. Based on the best hyperparameters obtained, the model can be trained to acheive a better accuracy rate.
+The complete code implementation can be found in inception_hp.ipynb.
 
