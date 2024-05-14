@@ -16,6 +16,7 @@ To download the dataset, follow the steps mentioned in the 'imagenet.ipynb' and 
 =================================================================================
 
 Note: You must download the API token from kaggle. Follow the below steps to download the API token.
+
 1. Login to your kaggle account
 2. Click your profile icon
 3. Go to settings
@@ -58,10 +59,12 @@ Follow the code as specified in imagenet.ipynb.
 Keras ImageDataGenerator is used in the realm of real-time data augmentation to generate batches comprising data from tensor pictures. We may utilize the ImageDataGenerator resize class by supplying it with the proper parameters and the relevant input
 
 ===========================================================
+
 Note: 
 1. batch_size is set as 32 and can be varied
 2. class_mode is set to 'categorical', since we have 100 classes in total. When only 2 classes are used, it can be changed to 'binary'
 3. target_size can also be varied
+
 ===========================================================
 
 We will be using only the basic models, with changes made only to the final layer. This is because this is just a 100 classes classification problem while these models are built to handle up to 1000 classes.
@@ -148,14 +151,14 @@ Therefore, ResNet and VGG16 shows good performance under 3 epochs and Efficientn
 
 The specified parameters can be changed to experiment the results. We have also plootted shap values to see how features contributed for the cllassification problem. Model Quantization is also performed to deploy large AI models by reducing its size and improving efficiency.
 
-===============================================================================================
+========================================================
 
 Note:
 Two .ipynb files are uploaded:
 1. imagenet.ipynb --> Complete code implementation
 2. vgg16.ipynb --> Complete code implementation using VGG16, also by customly changing the choose_model variable, we can implement the same code using Resnet50, inception and efficient architectures too.
 
-===============================================================================================
+========================================================
 
 **Further Optimization**
 
@@ -177,6 +180,6 @@ The results under 2 epochs are as shown below:
 3. Validation accuracy increased from 23% to 26%
 4. Validation loss dropped from 2.54 to 2.51
 
-Randomsearch hyperparameter tuning can be implemented for other architechtures too, by just changing the choose_model variable to any one of the following, such as vgg16, inception, efficientnet and resnet50. Based on the best hyperparameters obtained, the model can be trained to acheive a better accuracy rate.
+Randomsearch hyperparameter tuning can be implemented for other architectures too, by just changing the choose_model variable to any one of the following, such as vgg16, inception, efficientnet and resnet50. Based on the best hyperparameters obtained, the model can be trained to acheive a better accuracy rate.
 The complete code implementation can be found in inception_hp.ipynb.
 
