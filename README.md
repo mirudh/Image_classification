@@ -164,7 +164,20 @@ Two .ipynb files are uploaded:
 
 We see that inception is giving a pretty low accuracy, compared to any other algorithms. To find out the best parameter to train using inception, I have used hyperparameter tuning. The code for which can be found in 'inception_hp.ipynb'
 
-After performing Randomsearch using kera_tuner, The hyperparameters, to achieve good accuracy using inception architecuture is given in the below:
+=======================================================
+
+Note: I tried hyperparameter search for :
+1. Dense layer unit - 512 and 1024
+2. Activation function - 'Relu' and 'tanh'
+3. Dropout layer - 0.2 and 0.5
+4. Optimizer - Adam, SGD, RMSProp
+5. Learning rate - e^-2 and e^-4
+
+You can change these values, add more values or try it for various other factors. This is just a sample code.
+
+========================================================
+
+After performing Randomsearch using keras_tuner, The hyperparameters, to achieve good accuracy using inception architecuture is given in the below:
 
 1. The units of the dense layer in fully connected layer is set to 1024
 2. Activation function in the dense layer is set to 'Relu'
