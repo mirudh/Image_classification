@@ -13,7 +13,7 @@ ImageNet-100 is a subset of ImageNet-1k Dataset from ImageNet Large Scale Visual
 
 To download the dataset, follow the steps mentioned in the 'imagenet.ipynb' and run the first 4 cells.
 
-=================================================================================
+=======================================================
 
 Note: You must download the API token from kaggle. Follow the below steps to download the API token.
 
@@ -23,7 +23,7 @@ Note: You must download the API token from kaggle. Follow the below steps to dow
 4. Scroll down to API, you will be able to see 'create new API token'.
 5. Click it, kaggle.json file will get downloaded
    
-=================================================================================
+========================================================
 
 **Installing the dependencies**
 
